@@ -1,0 +1,47 @@
+.page{
+	width:80vw;
+	height:80vh;
+	border:1px solid red;
+	}
+	
+nav ul, li{
+	display:inline;
+	}
+
+#page1{
+	background:red;}
+
+#page2{
+	background:green;}
+
+#page3{
+	background:blue;}
+	
+#ball {
+	background: cyan;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#durianId {
+	position: relative;
+	width:10vw;
+	transition: all 0.5s;}
+ 
+ #durianId.shrink {
+	width:5vw;
+	opacity: 0;}
+	
+@keyframes durianFrames{
+0%{rotate:0deg}
+25%{rotate:90deg}
+50%{rotate:180deg}
+100%{rotate:270deg}
+}
+
+#durianId.anim1{animation: durianFrames 1s;}
