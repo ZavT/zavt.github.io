@@ -1,0 +1,361 @@
+* {
+  box-sizing: border-box;
+  line-height: 1.8;
+  color: #0245A3; /*all text color is dark blue */
+  border-radius: 10px; /* give all broder round corners */
+}
+
+
+body {
+	background-image: url("../images/background.jpg");
+    font-family: 'Helvetica', sans-serif;
+    margin: 0;
+    padding: 0;
+	overflow-x: hidden;
+}
+
+#qrCode {
+	width: 150px;
+	height: 150px;
+}
+
+/* Desktop */
+#content {
+    display: grid;
+    grid-template-columns: 300px 1fr; 
+    min-height: 100vh;
+}
+
+.box {
+	margin: 1%;
+	text-align:center ;
+}
+
+.header {
+	background-color: #8FBAF3; /* Light blue */
+	border: none;
+}
+
+.sub-header{
+	background-color: #8FBAF3; /* Light blue */
+	border: none;
+}
+
+.article {
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+	grid-template-rows: 1fr;
+    gap: 20px; 
+	width: auto ;
+}
+
+.article .part {
+	background-color: #BDF1F6; /*light blue */
+	border: none;
+	padding: 10px;
+	margin-bottom: 2%; 
+}
+
+.article .card{
+	min-height: 10vh;
+	margin-bottom: 2%; 
+}
+
+
+#blue{ 
+	text-align: center;
+	background: #8FBAF3 ; 
+	color: black;
+}
+
+#green{ 
+	text-align: center;
+	background: #79D1C3; 
+	color: black;
+}
+
+#white{ 
+	text-align: center;
+	background-color: #F8FCFB ; 
+	color: black;
+}
+
+
+#left{
+	grid-column: 1 ;
+	grid-row: 1 ;
+	text-align: center;
+}
+
+#right{
+	background-color: #6892D5; /*dark blue*/
+	grid-column: 2/6 ; /* middle */
+	grid-row: 1 ;
+	text-align: left;
+	padding: 3%;
+	border: none;
+}
+
+
+/* navbar */
+#navbar {
+    background-color: #C9FDD7;/*mint green */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-btn {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover, .nav-btn.active-btn {
+    background-color: #79D1C3;  /* darker mint green */
+    font-weight: bold;
+}
+
+#logo-icon{ 
+	width: 50px;
+	height: 50px;
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
+}
+
+#nav-menu button {
+	display: block;
+}
+
+/* Page animation */
+.page { 
+	display: none;
+	padding: 20px;
+ }
+.page.active { 
+    display: block; 
+    animation: fadeIn 0.5s ease; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Card format */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px; 
+}
+
+.column {
+    display: flex; 
+}
+
+.card {
+    min-height: 23vh;
+    padding: 16px;
+    text-align: center;
+    background-color: #F2FCFC; /* blue snow */
+    border: none;
+    width: 100%; 
+}
+
+.card img {
+	width: 100%; 
+	max-width: 300px;
+	height: auto;
+	
+}
+
+#types img{ 
+	height: auto; 
+	width: 100%; 
+	max-width: 400px;
+}
+
+#ways img{
+	height: auto; 
+	width: 100%; 
+	max-width: 400px;
+}
+
+/* Quiz */
+#form {
+	background: #79D1C3; /* dark mint green */
+	border-radius: 10px; /* give round corners */
+}
+
+#quiz {
+	margin-top: 100px ;
+	margin-right: auto;
+	padding: 40px;
+}
+
+fieldset { 
+	margin-bottom: 2% ;
+	padding: 10px;
+	width: 100%;
+	border: 1px solid #C9FDD7;
+}
+
+#redoBtn {
+	display: none;
+}
+
+.tab {
+  display: none;
+}
+
+#progress { 
+	text-align:center;
+	margin-top: 40px;
+}
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin-right: 2px;
+  background-color: darkgrey; 
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+
+.step.active {
+  opacity: 1;
+}
+
+.step.finish {
+  background-color: grey;
+}
+
+/* Game */
+#game-board { 
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 5 / 2; 
+    border: 1px solid black;
+    margin: auto;
+    overflow: hidden;
+    position: relative; 
+    background-color: #e0f7fa;
+    touch-action: manipulation;
+}
+
+#character {
+    position: absolute; 
+    width: 10%; 
+    aspect-ratio: 1 / 1; /* Charcter in a square */
+    bottom: 0%; 
+    left: 4%; 
+    /*Sprite (left side runnning, right side jumping*/
+    background-image: url('../images/SheepSprite.png');
+    background-size: 200% 100%;
+    background-position: left; /*Shows the running sheep */
+    background-repeat: no-repeat;
+}
+
+#character.animate {
+    /*Shift img to see the Jumping sheep */
+    background-position: right; 
+    animation: jump 400ms linear;
+}
+
+#block {
+    position: absolute;
+    width: 6%; 
+    height: auto; 
+    bottom: 0%; 
+    right: -10%; /* starts at the right side, off-screen */
+	border-radius: 0px;
+}
+
+@keyframes jump {
+    0% { bottom: 0%; }
+    40% { bottom: 30%; }
+    50% { bottom: 30%; } 
+    60% { bottom: 30%; }
+    100% { bottom: 0%; }
+}
+
+@keyframes block {
+    0% { right: -10%; } 
+    100% { right: 110%; } /* Move left */
+}
+
+.animate {
+    animation: jump 400ms linear; 
+}
+
+@keyframes block {
+    0% { left: 100%; } 
+    100% { left: -50px; } 
+}
+
+
+/* mobile */
+@media (max-width:800px) {
+#content {
+	grid-template-columns: 1fr; 
+}
+
+#nav-menu button {
+	display: inline;
+}
+	
+#sidebar {
+	flex-direction: column;
+	overflow-x: auto; 
+	padding: 10px;
+}
+
+.nav-btn {
+	width: auto;
+	white-space: nowrap; 
+}
+
+.row {
+	grid-template-columns: 1fr; 
+}
+
+.article {
+	display: grid;
+	grid-template-columns: 1fr ;
+	grid-template-rows: auto ;
+	gap: 20px; 
+	width: auto ;
+}
+
+#left{
+	text-align: center;
+	grid-column: 1;
+	grid-row: 1;
+}
+
+#right{
+	grid-column: 1;
+	grid-row: 2;
+	text-align: left;
+	padding: 3%;
+	border: none;
+}
+
+#qrCode{
+	display: none; 
+}
+
+}
